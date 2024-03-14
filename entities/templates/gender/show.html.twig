@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gender{% endblock %}
+
+{% block body %}
+    <h1>Gender</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gender.id }}</td>
+            </tr>
+            <tr>
+                <th>Terror</th>
+                <td>{{ gender.terror }}</td>
+            </tr>
+            <tr>
+                <th>Suspense</th>
+                <td>{{ gender.suspense }}</td>
+            </tr>
+            <tr>
+                <th>Comedy</th>
+                <td>{{ gender.comedy }}</td>
+            </tr>
+            <tr>
+                <th>Cartoon</th>
+                <td>{{ gender.cartoon }}</td>
+            </tr>
+            <tr>
+                <th>Anime</th>
+                <td>{{ gender.anime }}</td>
+            </tr>
+            <tr>
+                <th>Drama</th>
+                <td>{{ gender.drama }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gender_index') }}">back to list</a>
+
+    <a href="{{ path('app_gender_edit', {'id': gender.id}) }}">edit</a>
+
+    {{ include('gender/_delete_form.html.twig') }}
+{% endblock %}

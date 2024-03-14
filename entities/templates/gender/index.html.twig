@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gender index{% endblock %}
+
+{% block body %}
+    <h1>Gender index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Terror</th>
+                <th>Suspense</th>
+                <th>Comedy</th>
+                <th>Cartoon</th>
+                <th>Anime</th>
+                <th>Drama</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gender in genders %}
+            <tr>
+                <td>{{ gender.id }}</td>
+                <td>{{ gender.terror }}</td>
+                <td>{{ gender.suspense }}</td>
+                <td>{{ gender.comedy }}</td>
+                <td>{{ gender.cartoon }}</td>
+                <td>{{ gender.anime }}</td>
+                <td>{{ gender.drama }}</td>
+                <td>
+                    <a href="{{ path('app_gender_show', {'id': gender.id}) }}">show</a>
+                    <a href="{{ path('app_gender_edit', {'id': gender.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gender_new') }}">Create new</a>
+{% endblock %}
